@@ -55,7 +55,7 @@
 			items = 'li:not(.divider)';
 			$menu.attr('style', '')
 				.css(tp)
-				.addClass('open')
+				.addClass('show')
 				.on('click.context.data-api', items, $.proxy(this.onItem, this, $(e.currentTarget)))
 				.trigger('shown.bs.context', relatedTarget);
 
@@ -75,13 +75,13 @@
 
 			$menu = this.getMenu();
 
-			if(!$menu.hasClass('open')) return;
+			if(!$menu.hasClass('show')) return;
 
 			relatedTarget = { relatedTarget: this };
 			$menu.trigger(evt = $.Event('hide.bs.context', relatedTarget));
 
 			items = 'li:not(.divider)';
-			$menu.removeClass('open')
+			$menu.removeClass('show')
 				.off('click.context.data-api', items)
 				.trigger('hidden.bs.context', relatedTarget);
 
